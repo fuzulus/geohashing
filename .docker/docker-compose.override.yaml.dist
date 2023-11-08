@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+  php:
+    volumes:
+      - '..:/opt/app'
+    build:
+      args:
+        XDEBUG_ENABLED: 'true'
+
+  nginx:
+    volumes:
+      - '..:/opt/app'
+    ports:
+      - "8000:80"
+
+  pgsql:
+    ports:
+      - "5421:5432"
+
+  mariadb:
+    ports:
+      - "3309:3306"
